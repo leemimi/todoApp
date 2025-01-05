@@ -1,10 +1,17 @@
-function TodoList() {
-    return ( 
-    <ul>
-        <li>아이템1</li>
-        <li>아이템2</li>
-        <li>아이템3</li>
-    </ul> );
+
+import TodoListItem from "./TodoListItem";
+
+function TodoList({todos, onRemove, onToggle}) {
+    return (
+        <>
+            <ul>
+                {todos.map((todo) => (
+                    <TodoListItem key={todo.id} todo={todo} 
+                        onRemove={onRemove} onToggle ={onToggle}/>
+                ))}
+            </ul>
+        </>
+    );
 }
 
 export default TodoList;
